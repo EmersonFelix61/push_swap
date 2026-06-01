@@ -2,12 +2,11 @@
 
 int	main(int argc, char **argv)
 {
-	int	*numbers;
-	
-	if (argc == 1)
-		return (0);
-	numbers = malloc(sizeof(char) * (argc - 1));
-	if (!numbers)
-		return (1);
-	if (!)
+	char	*tokens;
+
+	if (argc <= 1)
+		return (print_error(), 0);
+	tokens = get_tokens(argc, argv);
+	if (!tokens)
+		return (print_error(), 0);
 }
