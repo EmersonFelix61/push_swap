@@ -6,11 +6,11 @@
 /*   By: emda-sil <emda-sil@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 12:49:07 by emda-sil          #+#    #+#             */
-/*   Updated: 2026/05/29 13:07:28 by emda-sil         ###   ########.fr       */
+/*   Updated: 2026/05/31 22:46:40 by merson           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int	parser_numbers(char *arg)
 {
@@ -69,4 +69,48 @@ int	parser_int(char *arg, int *number)
 		return (0);
 	*number = (int)ft_atoi(arg);
 	return (1);
+}
+
+int	*get_numbers(int argc, char **argv)
+{
+	int	*numbers;
+	int	i;
+	int	j;
+
+	i = 1;
+	j = 0;
+	numbers = malloc(sizeof(int) * (argc - 1));
+	if (!numbers)
+		return (NULL);
+	while (i < argc)
+	{
+		if (!parser_int(argv[i], &numbers[j]))
+		{
+			free(numbers);
+			return (NULL);
+		}
+		i++;
+		j++;
+	}
+	return (numbers);
+}
+
+int	is_duplicate(int *numbers, int size)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < size)
+	{
+		j = i + 1;
+		while (j < size)
+		{
+			if (numbers[i] == numbers[j])
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }
