@@ -8,14 +8,14 @@ LIBFT = $(LIBFT_DIR)/libft.a
 
 SRC_DIR = src
 UTILS_DIR = utils
+PARSERS_DIR = parsers
 INC_DIR = includes
 
 SRCS = \
 	$(SRC_DIR)/main.c \
-	$(SRC_DIR)/parser.c \
-	$(SRC_DIR)/stack.c \
-	$(SRC_DIR)/error.c \
-	$(UTILS_DIR)/utils.c
+	$(UTILS_DIR)/errors.c \
+	$(PARSERS_DIR)/parser_args.c \
+	$(PARSERS_DIR)/parser_tokens.c \
 
 OBJS = $(SRCS:.c=.o)
 
