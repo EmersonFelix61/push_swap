@@ -33,9 +33,7 @@ char	*join_args(int argc, char **argv)
 	{
 		j = 0;
 		while (argv[i][j])
-			joined[k++] = argv[i][j++];Pace
-22
-Milestone Deadline :
+			joined[k++] = argv[i][j++];
 		if (i < argc - 1)
 			joined[k++] = ' ';
 		i++;
