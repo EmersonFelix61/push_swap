@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: raferrei <raferrei@student.42porto.com>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/30 15:44:51 by raferrei          #+#    #+#             */
-/*   Updated: 2026/05/30 17:45:47 by raferrei         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../includes/push_swap.h"
 
 t_stack	*new_stack(int value)
@@ -36,22 +24,27 @@ void	add_back(t_stack **stack, t_stack *new)
 		return ;
 	}
 	ptr = *stack;
-	while (ptr->next);
+	while (ptr->next)
 		ptr = ptr->next;
 	ptr->next = new;
 }
 
 t_stack	*stack_last(t_stack *stack)
 {
-	int	size;
-
-	size = 0;
-	while (stack)
-	{
-		size++;
+	if (!stack)
+		return (NULL);
+	while (stack->next)
 		stack = stack->next;
-	}
-	return (size);
+	return (stack);
+}
+
+t_stack	*stack_before_last(t_stack *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack->next->next)
+		stack = stack->next;
+	return (stack);
 }
 
 void	stack_free(t_stack **stack)
@@ -63,4 +56,32 @@ void	stack_free(t_stack **stack)
 		free(*stack);
 		*stack = ptr;
 	}
+}
+
+t_stack *stack_builder(char **tokens)
+{
+	t_stack *stack;
+	t_stack	*new;
+	int		i;
+	int		nbr;
+
+	i = 0;
+	stack = NULL;
+	while(tokens[i])
+	{
+		if (!parser_int(tokens[i], &nbr))
+		{
+			stack_free(&stack);
+			return (NULL);
+		}
+		new = new_stack(nbr);
+		if (!new)
+		{
+			stack_free(&stack);
+			return (NULL);
+		}
+		add_back(&stack, new);
+		i++;
+	}
+	return (stack);
 }

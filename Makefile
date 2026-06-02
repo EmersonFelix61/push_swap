@@ -10,12 +10,18 @@ SRC_DIR = src
 UTILS_DIR = utils
 PARSERS_DIR = parsers
 INC_DIR = includes
+OPERATIONS_DIR = operations
 
 SRCS = \
 	$(SRC_DIR)/main.c \
 	$(UTILS_DIR)/errors.c \
 	$(PARSERS_DIR)/parser_args.c \
 	$(PARSERS_DIR)/parser_tokens.c \
+	$(UTILS_DIR)/stack.c \
+	$(OPERATIONS_DIR)/push.c \
+	$(OPERATIONS_DIR)/rotate.c \
+	$(OPERATIONS_DIR)/rev_rotate.c \
+	$(OPERATIONS_DIR)/swap.c \
 
 OBJS = $(SRCS:.c=.o)
 
