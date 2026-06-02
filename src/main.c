@@ -2,11 +2,15 @@
 
 int	main(int argc, char **argv)
 {
-	char	*tokens;
+	char	**tokens;
 
-	if (argc <= 1)
-		return (print_error(), 0);
+	if (argc == 1)
+		return (0);
 	tokens = get_tokens(argc, argv);
 	if (!tokens)
-		return (print_error(), 0);
+	{
+		free_tokens(tokens);
+		print_error();
+		return (0);
+	}
 }

@@ -4,6 +4,21 @@
 # include "../libft/libft.h"
 # include <limits.h>
 
+typedef enum e_strategy
+{
+	STRAT_SIMPLE,
+	STRAT_MEDIUM,
+	STRAT_COMPLEX,
+	STRAT_ADAPTIVE
+}	t_strategy;
+
+typedef struct s_config
+{
+	t_strategy	strategy;
+	int			bench;
+	int			numbers_count;
+}	t_config;
+
 int		parser_numbers(char *arg);
 int		parser_range(char *arg);
 int		parser_int(char *arg, int *number);
