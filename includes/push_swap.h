@@ -42,6 +42,9 @@ char	*join_args(int argc, char **argv);
 char	**get_tokens(int argc, char **argv);
 void	free_tokens(char **tokens);
 int		print_error(void);
+void    init_config(t_config *config);
+int     set_bench(char *token, t_config *config, t_bench *bench);
+int     set_strategy(char *token, t_config *config, int *strategy_found);
 
 t_stack	*new_stack(int value);
 void	add_back(t_stack **stack, t_stack *new);
@@ -49,6 +52,8 @@ t_stack	*stack_last(t_stack *stack);
 t_stack	*stack_before_last(t_stack *stack);
 void	stack_free(t_stack **stack);
 t_stack *stack_builder(char **tokens);
+
+void	init_bench(t_bench	*bench);
 
 void	swap(t_stack **stack);
 void	sa(t_config *config, t_stack **a);

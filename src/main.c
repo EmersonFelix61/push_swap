@@ -27,4 +27,5 @@ int	main(int argc, char **argv)
 	//por completar...
 	stack_free(&a);
 	stack_free(&b);
+	return (0);
 }

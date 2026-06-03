@@ -7,13 +7,14 @@ void	init_config(t_config *config)
 	config->numbers_count = 0;
 }
 
-int	set_bench(char *token, t_config *config)
+int	set_bench(char *token, t_config *config, t_bench *bench)
 {
-	if (ft_strncmp(token, "--bench", 8) == 0)
+	if (ft_strncmp(token, "--bench", 8) != 0)
 		return (0);
 	if (config->bench)
 		return (-1);
-	config->bench = 1;
+	init_bench(bench);
+	config->bench = bench;
 	return (1);
 }
 
@@ -31,7 +32,7 @@ int	set_strategy(char *token, t_config *config, int *strategy_found)
 			config->strategy = STRAT_SIMPLE;
 		else if (ft_strncmp(token, "--medium", 9) == 0)
 			config->strategy = STRAT_MEDIUM;
-		else if (ft_strncmp(token, "--complext", 10) == 0)
+		else if (ft_strncmp(token, "--complex", 10) == 0)
 			config->strategy = STRAT_COMPLEX;
 		else
 			config->strategy = STRAT_ADAPTIVE;

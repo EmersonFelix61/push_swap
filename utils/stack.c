@@ -40,7 +40,7 @@ t_stack	*stack_last(t_stack *stack)
 
 t_stack	*stack_before_last(t_stack *stack)
 {
-	if (!stack)
+	if (!stack || !stack->next)
 		return (NULL);
 	while (stack->next->next)
 		stack = stack->next;
