@@ -6,11 +6,11 @@
 /*   By: emda-sil <emda-sil@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 17:40:30 by emda-sil          #+#    #+#             */
-/*   Updated: 2026/05/19 18:25:03 by emda-sil         ###   ########.fr       */
+/*   Updated: 2026/06/04 14:05:48 by raferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	ft_format(char format, va_list args)
 {

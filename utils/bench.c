@@ -6,9 +6,9 @@ void	init_bench(t_bench *bench)
 
 	if (!bench)
 		return ;
-	bench->display = 1;
+	bench->display = 0;
 	bench->disorder = 0;
-	bench->strategy = NULL;
+	bench->strategy = "Adaptive";
 	bench->big_o = NULL;
 	i = 0;
 	while (i < 11)

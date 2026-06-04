@@ -16,12 +16,14 @@ void	pa(t_config *config, t_stack **a, t_stack **b)
 {
 	push(b, a);
 	write(1, "pa\n", 3);
-	++config->bench->moves[3];
+	if (config && config->bench)
+		++config->bench->moves[pa];
 }
 
 void	pb(t_config *config, t_stack **a, t_stack **b)
 {
 	push(a, b);
 	write(1, "pb\n", 3);
-	++config->bench->moves[4];
+	if (config && config->bench)
+		++config->bench->moves[pb];
 }

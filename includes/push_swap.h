@@ -1,3 +1,4 @@
+ 23     int         display;
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -26,6 +27,21 @@ typedef struct  s_bench
 	int			moves[11];
 	char		*big_o;
 }	t_bench;
+
+typedef enum	e_moves
+{
+	sa,
+	sb,
+	ss,
+	pa,
+	pb,
+	ra,
+	rb,
+	rr,
+	rra,
+	rrb,
+	rrr
+}	t_moves;
 
 typedef struct s_config
 {

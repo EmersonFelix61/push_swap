@@ -6,7 +6,7 @@
 #    By: emda-sil <emda-sil@student.42school.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/23 11:45:05 by emda-sil          #+#    #+#              #
-#    Updated: 2026/05/12 12:52:23 by emda-sil         ###   ########.fr        #
+#    Updated: 2026/06/04 13:51:46 by raferrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ LIB_SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 		  ft_lstnew.c ft_lstadd_back.c ft_lstadd_front.c ft_lstlast.c \
 		  ft_lstdelone.c ft_lstiter.c ft_lstmap.c ft_lstsize.c ft_lstclear.c \
 		  ft_printf.c ft_print_hex.c ft_print_text.c ft_print_ptr.c \
-		  ft_print_numbers.c
+		  ft_print_numbers.c ft_format.c
 
 OBJ = $(LIB_SRC:.c=.o)
 

@@ -16,14 +16,16 @@ void	ra(t_config *config, t_stack **a)
 {
 	rotate(a);
 	write(1, "ra\n", 3);
-	++config->bench->moves[5];
+	if (config && config->bench)
+		++config->bench->moves[ra];
 }
 
 void	rb(t_config *config, t_stack **b)
 {
 	rotate(b);
 	write(1, "rb\n", 3);
-	++config->bench->moves[6];
+	if (config && config->bench)
+		++config->bench->moves[rb];
 }
 
 void	rr(t_config *config, t_stack **a, t_stack **b)
@@ -31,5 +33,6 @@ void	rr(t_config *config, t_stack **a, t_stack **b)
 	rotate(a);
 	rotate(b);
 	write(1, "rr\n", 3);
-	++config->bench->moves[7];
+	if (config && config->bench)
+		++config->bench->moves[rr];
 }
