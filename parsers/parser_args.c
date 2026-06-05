@@ -59,26 +59,31 @@ int	parser_int(char *arg, int *number)
 	return (1);
 }
 
-int	*get_numbers(int argc, char **argv)
+int	*get_numbers(char **tokens, int numbers_count)
 {
 	int	*numbers;
 	int	i;
 	int	j;
 
-	i = 1;
-	j = 0;
-	numbers = malloc(sizeof(int) * (argc - 1));
+	numbers = malloc(sizeof(int) * numbers_count);
 	if (!numbers)
 		return (NULL);
-	while (i < argc)
+	i = 0;
+	j = 0;
+	while (tokens[i])
 	{
-		if (!parser_int(argv[i], &numbers[j]))
+		if (ft_strncmp(tokens[i], "--bench", 8) == 0
+			|| ft_strncmp(tokens[i], "--simple", 9) == 0
+			|| ft_strncmp(tokens[i], "--medium", 9) == 0
+			|| ft_strncmp(tokens[i], "--complex", 10) == 0
+			|| ft_strncmp(tokens[i], "--adaptive", 11) == 0)
 		{
-			free(numbers);
-			return (NULL);
+			i++;
+			continue ;
 		}
+		if (!parser_int(tokens[i], &numbers[j++]))
+			return (free(numbers), NULL);
 		i++;
-		j++;
 	}
 	return (numbers);
 }
