@@ -52,6 +52,8 @@ typedef struct s_config
 int		parser_numbers(char *arg);
 int		parser_range(char *arg);
 int		parser_int(char *arg, int *number);
+int		is_duplicate(int *numbers, int size);
+int		*get_numbers(char **tokens, int numbers_count);
 int		len_args(int argc, char **argv);
 char	*join_args(int argc, char **argv);
 char	**get_tokens(int argc, char **argv);
@@ -61,6 +63,7 @@ void	init_config(t_config *config, t_bench *bench);
 int		set_bench(char *token, t_config *config);
 int		set_strategy(char *token, t_config *config, int *strategy_found);
 int		parser_flags(char **tokens, t_config *config);
+int		parser_input(int argc, char **argv, int **numbers, t_config *config, t_bench *bench);
 
 t_stack	*new_stack(int value);
 void	add_back(t_stack **stack, t_stack *new);
