@@ -1,79 +1,64 @@
 #include "../includes/push_swap.h"
-/*
+
 int	main(int argc, char **argv)
 {
-	char		**tokens;
+	int			*numbers;
+	int			status;
 	t_stack		*a;
 	t_stack		*b;
 	t_bench		bench;
-	t_config	config;
 
+	numbers = NULL;
 	a = NULL;
 	b = NULL;
-	init_config(&config);
-	if (argc == 1)
+	status = parser(argc, argv, &numbers, &bench);
+	if (status == 0)
 		return (0);
-	tokens = get_tokens(argc, argv);
-	if (!tokens)
-	{
-		free_tokens(tokens);
-		print_error();
-		return (0);
-	}
-	a = stack_builder(tokens);
-	free_tokens(tokens);
+	if (status == -1)
+		return (print_error());
+	a = stack_builder(numbers, bench.numbers_count);
 	if (!a)
-	{
-		print_error();
-		return (0);
-	}
-	//por completar...
+		return (free(numbers),print_error());
+	//algoritmo aqui
 	stack_free(&a);
 	stack_free(&b);
+	free(numbers);
+	return (0);
+}
+
+/*
+int main(int argc, char **argv)
+{
+	int			*numbers;
+	int			i;
+	int			status;
+	t_bench		bench;
+	t_config	config;
+
+	numbers = NULL;
+	status = parser_input(argc, argv, &numbers, &config, &bench);
+	ft_printf("status = %d\n", status);
+	if (status == -1)
+		return (print_error());
+	if (bench.display)
+	{
+		ft_printf("Numbers count: %d\n", config.numbers_count);
+		ft_printf("Strategy: %d\n", config.strategy);
+		ft_printf("Bench display: %d\n", bench.display);
+		ft_printf("Bench disorder nao calculada ainda\n");
+	}
+	else
+	{
+		ft_printf("Numbers count: %d\n", config.numbers_count);
+		ft_printf("Bench display: OFF\n");
+	}
+	i = 0;
+	while (i < config.numbers_count)
+	{
+		ft_printf("%d\n", numbers[i]);
+		i++;
+	}	
+	free(numbers);
 	return (0);
 }
 */
-//teste swap push ...
-void    print_stack(char *name, t_stack *stack)
-{
-    ft_printf("%s: ", name);
-    while (stack)
-    {
-        ft_printf("%d ", stack->value);
-        stack = stack->next;
-    }
-    ft_printf("\n");
-}
-
-int main(void)
-{
-    t_stack *a;
-    t_stack *b;
-
-    a = NULL;
-    b = NULL;
-    add_back(&a, new_stack(3));
-    add_back(&a, new_stack(2));
-    add_back(&a, new_stack(1));
-
-    print_stack("A antes", a);
-    print_stack("B antes", b);
-
-    swap_sa(NULL, &a);
-    print_stack("A depois sa", a);
-
-    rotate_ra(NULL, &a);
-    print_stack("A depois ra", a);
-
-    rev_rra(NULL, &a);
-    print_stack("A depois rra", a);
-
-    push_pb(NULL, &a, &b);
-    print_stack("A depois pb", a);
-    print_stack("B depois pb", b);
-
-	
-    stack_free(&a);
-    stack_free(&b);
-    return (0);
-}

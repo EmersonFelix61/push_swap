@@ -14,27 +14,24 @@ void	rev_rotate(t_stack **stack)
 	*stack = tmp1;
 }
 
-void	rev_rra(t_config *config, t_stack **a)
+void	rev_rra(t_bench *bench, t_stack **a)
 {
 	rev_rotate(a);
 	write(1, "rra\n", 4);
-	if (config && config->bench)
-		++config->bench->moves[rra];
+		++bench->moves[rra];
 }
 
-void	rev_rrb(t_config *config, t_stack **b)
+void	rev_rrb(t_bench *bench, t_stack **b)
 {
 	rev_rotate(b);
 	write(1, "rrb\n", 4);
-	if (config && config->bench)
-		++config->bench->moves[rrb];
+		++bench->moves[rrb];
 }
 
-void	rev_rrr(t_config *config, t_stack **a, t_stack **b)
+void	rev_rrr(t_bench *bench, t_stack **a, t_stack **b)
 {
 	rev_rotate(a);
 	rev_rotate(b);
 	write(1, "rrr\n", 4);
-	if (config && config->bench)
-		++config->bench->moves[rrr];
+		++bench->moves[rrr];
 }

@@ -16,12 +16,15 @@ SRCS = \
 	$(SRC_DIR)/main.c \
 	$(UTILS_DIR)/errors.c \
 	$(PARSERS_DIR)/parser_args.c \
+	$(PARSERS_DIR)/parser_flags.c \
 	$(PARSERS_DIR)/parser_tokens.c \
+	$(PARSERS_DIR)/parser_input.c \
 	$(UTILS_DIR)/stack.c \
 	$(OPERATIONS_DIR)/push.c \
 	$(OPERATIONS_DIR)/rotate.c \
 	$(OPERATIONS_DIR)/rev_rotate.c \
 	$(OPERATIONS_DIR)/swap.c \
+	$(UTILS_DIR)/stack_builder.c \
 
 OBJS = $(SRCS:.c=.o)
 

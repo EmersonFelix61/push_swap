@@ -12,27 +12,24 @@ void	rotate(t_stack **stack)
 	add_back(stack, tmp);
 }
 
-void	rotate_ra(t_config *config, t_stack **a)
+void	rotate_ra(t_bench *bench, t_stack **a)
 {
 	rotate(a);
 	write(1, "ra\n", 3);
-	if (config && config->bench)
-		++config->bench->moves[ra];
+		++bench->moves[ra];
 }
 
-void	rotate_rb(t_config *config, t_stack **b)
+void	rotate_rb(t_bench *bench, t_stack **b)
 {
 	rotate(b);
 	write(1, "rb\n", 3);
-	if (config && config->bench)
-		++config->bench->moves[rb];
+		++bench->moves[rb];
 }
 
-void	rotate_rr(t_config *config, t_stack **a, t_stack **b)
+void	rotate_rr(t_bench *bench, t_stack **a, t_stack **b)
 {
 	rotate(a);
 	rotate(b);
 	write(1, "rr\n", 3);
-	if (config && config->bench)
-		++config->bench->moves[rr];
+		++bench->moves[rr];
 }

@@ -49,39 +49,12 @@ t_stack	*stack_before_last(t_stack *stack)
 
 void	stack_free(t_stack **stack)
 {
-	t_stack *ptr;
+	t_stack	*ptr;
+
 	while (*stack)
 	{
 		ptr = (*stack)->next;
 		free(*stack);
 		*stack = ptr;
 	}
-}
-
-t_stack *stack_builder(char **tokens)
-{
-	t_stack *stack;
-	t_stack	*new;
-	int		i;
-	int		nbr;
-
-	i = 0;
-	stack = NULL;
-	while(tokens[i])
-	{
-		if (!parser_int(tokens[i], &nbr))
-		{
-			stack_free(&stack);
-			return (NULL);
-		}
-		new = new_stack(nbr);
-		if (!new)
-		{
-			stack_free(&stack);
-			return (NULL);
-		}
-		add_back(&stack, new);
-		i++;
-	}
-	return (stack);
 }
