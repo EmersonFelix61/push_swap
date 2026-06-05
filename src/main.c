@@ -1,5 +1,5 @@
 #include "../includes/push_swap.h"
-
+/*
 int	main(int argc, char **argv)
 {
 	char		**tokens;
@@ -32,7 +32,7 @@ int	main(int argc, char **argv)
 	stack_free(&b);
 	return (0);
 }
-/*
+*/
 //teste swap push ...
 void    print_stack(char *name, t_stack *stack)
 {
@@ -59,16 +59,16 @@ int main(void)
     print_stack("A antes", a);
     print_stack("B antes", b);
 
-    sa(NULL, &a);
+    swap_sa(NULL, &a);
     print_stack("A depois sa", a);
 
-    ra(NULL, &a);
+    rotate_ra(NULL, &a);
     print_stack("A depois ra", a);
 
-    rra(NULL, &a);
+    rev_rra(NULL, &a);
     print_stack("A depois rra", a);
 
-    pb(NULL, &a, &b);
+    push_pb(NULL, &a, &b);
     print_stack("A depois pb", a);
     print_stack("B depois pb", b);
 
@@ -76,4 +76,4 @@ int main(void)
     stack_free(&a);
     stack_free(&b);
     return (0);
-}*/
+}

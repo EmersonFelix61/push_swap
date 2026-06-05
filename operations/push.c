@@ -12,7 +12,7 @@ void	push(t_stack **src, t_stack **dst)
 	*dst = tmp;
 }
 
-void	pa(t_config *config, t_stack **a, t_stack **b)
+void	push_pa(t_config *config, t_stack **a, t_stack **b)
 {
 	push(b, a);
 	write(1, "pa\n", 3);
@@ -20,7 +20,7 @@ void	pa(t_config *config, t_stack **a, t_stack **b)
 		++config->bench->moves[pa];
 }
 
-void	pb(t_config *config, t_stack **a, t_stack **b)
+void	push_pb(t_config *config, t_stack **a, t_stack **b)
 {
 	push(a, b);
 	write(1, "pb\n", 3);

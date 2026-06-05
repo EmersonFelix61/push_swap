@@ -12,7 +12,7 @@ void	rotate(t_stack **stack)
 	add_back(stack, tmp);
 }
 
-void	ra(t_config *config, t_stack **a)
+void	rotate_ra(t_config *config, t_stack **a)
 {
 	rotate(a);
 	write(1, "ra\n", 3);
@@ -20,7 +20,7 @@ void	ra(t_config *config, t_stack **a)
 		++config->bench->moves[ra];
 }
 
-void	rb(t_config *config, t_stack **b)
+void	rotate_rb(t_config *config, t_stack **b)
 {
 	rotate(b);
 	write(1, "rb\n", 3);
@@ -28,7 +28,7 @@ void	rb(t_config *config, t_stack **b)
 		++config->bench->moves[rb];
 }
 
-void	rr(t_config *config, t_stack **a, t_stack **b)
+void	rotate_rr(t_config *config, t_stack **a, t_stack **b)
 {
 	rotate(a);
 	rotate(b);

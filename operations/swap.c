@@ -12,7 +12,7 @@ void	swap(t_stack **stack)
 	(*stack)->next = tmp;
 }
 
-void	sa(t_config *config, t_stack **a)
+void	swap_sa(t_config *config, t_stack **a)
 {
 	swap(a);
 	write(1, "sa\n", 3);
@@ -20,7 +20,7 @@ void	sa(t_config *config, t_stack **a)
 		++config->bench->moves[sa];
 }
 
-void	sb(t_config *config, t_stack **b)
+void	swap_sb(t_config *config, t_stack **b)
 {
 	swap(b);
 	write(1, "sb\n", 3);
@@ -28,7 +28,7 @@ void	sb(t_config *config, t_stack **b)
 		++config->bench->moves[sb];
 }
 
-void	ss(t_config *config, t_stack **a, t_stack **b)
+void	swap_ss(t_config *config, t_stack **a, t_stack **b)
 {
 	swap(a);
 	swap(b);

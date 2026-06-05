@@ -1,5 +1,4 @@
- 23     int         display;
-#ifndef PUSH_SWAP_H
+# ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
@@ -73,21 +72,21 @@ t_stack	*stack_builder(char **tokens);
 void	init_bench(t_bench	*bench);
 
 void	swap(t_stack **stack);
-void	sa(t_config *config, t_stack **a);
-void	sb(t_config *config, t_stack **b);
-void	ss(t_config *config, t_stack **a, t_stack **b);
+void	swap_sa(t_config *config, t_stack **a);
+void	swap_sb(t_config *config, t_stack **b);
+void	swap_ss(t_config *config, t_stack **a, t_stack **b);
 
 void	push(t_stack **src, t_stack **dst);
-void	pa(t_config *config, t_stack **a, t_stack **b);
-void	pb(t_config *config, t_stack **a, t_stack **b);
+void	push_pa(t_config *config, t_stack **a, t_stack **b);
+void	push_pb(t_config *config, t_stack **a, t_stack **b);
 
 void	rotate(t_stack **stack);
-void	ra(t_config *config, t_stack **a);
-void	rb(t_config *config, t_stack **b);
-void	rr(t_config *config, t_stack **a, t_stack **b);
+void	rotate_ra(t_config *config, t_stack **a);
+void	rotate_rb(t_config *config, t_stack **b);
+void	rotate_rr(t_config *config, t_stack **a, t_stack **b);
 
 void	rev_rotate(t_stack **stack);
-void	rra(t_config *config, t_stack **a);
-void	rrb(t_config *config, t_stack **b);
-void	rrr(t_config *config, t_stack **a, t_stack **b);
+void	rev_rra(t_config *config, t_stack **a);
+void	rev_rrb(t_config *config, t_stack **b);
+void	rev_rrr(t_config *config, t_stack **a, t_stack **b);
 #endif
