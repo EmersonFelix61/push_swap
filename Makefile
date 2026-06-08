@@ -25,7 +25,8 @@ SRCS = \
 	$(OPERATIONS_DIR)/rev_rotate.c \
 	$(OPERATIONS_DIR)/swap.c \
 	$(UTILS_DIR)/stack_builder.c \
-	$(UTILS_DIR)/stack_utils.c \
+	$(UTILS_DIR)/stack_map.c \
+	$(ALGORITHM_DIR)/simple.c \
 
 OBJS = $(SRCS:.c=.o)
 

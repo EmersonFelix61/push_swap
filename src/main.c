@@ -1,6 +1,6 @@
 #include "../includes/push_swap.h"
 
-double	disorder(t_stack *stack)
+double	ft_disorder(t_stack *stack)
 {
 	double	mistakes;
 	double	total_pairs;
@@ -11,7 +11,7 @@ double	disorder(t_stack *stack)
 	total_pairs = 0;
 	start = stack;
 	if (!stack || !stack->next)
-		return(0);
+		return (0);
 	while (start)
 	{
 		next_start = start->next;
@@ -47,7 +47,8 @@ int	main(int argc, char **argv)
 		return (print_error());
 	a = stack_builder(numbers, bench.numbers_count);
 	if (!a)
-		return (free(numbers),print_error());
+		return (free(numbers), print_error());
+	bench.disorder = ft_disorder(a);
 	//algoritmo aqui
 	stack_free(&a);
 	stack_free(&b);
