@@ -68,6 +68,8 @@ void	stack_free(t_stack **stack);
 t_stack	*stack_builder(int *numbers, int size);
 int stack_size(t_stack *stack);
 int is_sorted(t_stack *stack);
+int find_lowest(t_stack *stack);
+int find_highest(t_stack *stack);
 
 //operations
 void	swap(t_stack **stack);
