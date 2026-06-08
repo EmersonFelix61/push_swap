@@ -1,4 +1,4 @@
-# ifndef PUSH_SWAP_H
+#ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
@@ -27,7 +27,7 @@ typedef struct s_bench
 	int			moves[11];
 }	t_bench;
 
-typedef enum	e_moves
+typedef enum e_moves
 {
 	sa,
 	sb,
@@ -51,12 +51,19 @@ int		len_args(int argc, char **argv);
 char	*join_args(int argc, char **argv);
 char	**get_tokens(int argc, char **argv);
 void	free_tokens(char **tokens);
-int		print_error(void);
 void	init_bench(t_bench *bench);
 int		set_bench(t_bench *bench, char *token);
 int		set_strategy(t_bench *bench, char *token, int *strategy_tester);
 int		parser_flags(char **tokens, t_bench *bench);
 int		parser(int argc, char **argv, int **numbers, t_bench *bench);
+
+
+int		print_error(void);
+int	stack_size(t_stack *stack);
+int	is_sorted(t_stack *stack);
+int	find_min_position(t_stack *stack);
+int	find_max_position(t_stack *stack);
+int	get_position(t_stack *stack, int value);
 
 t_stack	*new_stack(int value);
 void	add_back(t_stack **stack, t_stack *new);
