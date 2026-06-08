@@ -1,5 +1,34 @@
 #include "../includes/push_swap.h"
 
+double	disorder(t_stack *stack)
+{
+	double	mistakes;
+	double	total_pairs;
+	t_stack	*start;
+	t_stack	*next_start;
+
+	mistakes = 0;
+	total_pairs = 0;
+	start = stack;
+	if (!stack || !stack->next)
+		return(0);
+	while (start)
+	{
+		next_start = start->next;
+		while (next_start)
+		{
+			++total_pairs;
+			if (start->value > next_start->value)
+				++mistakes;
+		next_start = next_start->next;
+		}
+		start = start->next;
+	}
+	if (total_pairs == 0)
+		return (0);
+	return (mistakes / total_pairs);
+}
+
 int	main(int argc, char **argv)
 {
 	int			*numbers;
@@ -25,40 +54,3 @@ int	main(int argc, char **argv)
 	free(numbers);
 	return (0);
 }
-
-/*
-int main(int argc, char **argv)
-{
-	int			*numbers;
-	int			i;
-	int			status;
-	t_bench		bench;
-	t_config	config;
-
-	numbers = NULL;
-	status = parser_input(argc, argv, &numbers, &config, &bench);
-	ft_printf("status = %d\n", status);
-	if (status == -1)
-		return (print_error());
-	if (bench.display)
-	{
-		ft_printf("Numbers count: %d\n", config.numbers_count);
-		ft_printf("Strategy: %d\n", config.strategy);
-		ft_printf("Bench display: %d\n", bench.display);
-		ft_printf("Bench disorder nao calculada ainda\n");
-	}
-	else
-	{
-		ft_printf("Numbers count: %d\n", config.numbers_count);
-		ft_printf("Bench display: OFF\n");
-	}
-	i = 0;
-	while (i < config.numbers_count)
-	{
-		ft_printf("%d\n", numbers[i]);
-		i++;
-	}	
-	free(numbers);
-	return (0);
-}
-*/

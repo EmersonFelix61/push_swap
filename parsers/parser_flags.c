@@ -17,7 +17,7 @@ int	set_bench(t_bench *bench, char *token)
 {
 	if (ft_strncmp(token, "--bench", 8) != 0)
 		return (0);
-	if 	(bench->display)
+	if (bench->display)
 		return (-1);
 	bench->display = 1;
 	return (1);
