@@ -5,6 +5,8 @@ int	stack_size(t_stack *stack)
 	int	len;
 
 	len = 0;
+	if (!stack)
+		return (0);
 	while (stack)
 	{
 		len++;
@@ -15,6 +17,8 @@ int	stack_size(t_stack *stack)
 
 int	is_sorted(t_stack *stack)
 {
+	if (!stack)
+		return (0);
 	while (stack && stack->next)
 	{
 		if (stack->value > stack->next->value)
@@ -59,7 +63,7 @@ int	find_max_position(t_stack *stack)
 	max = stack->value;
 	max_pos = 0;
 	i = 0;
-while (stack)
+	while (stack)
 	{
 		if (stack->value > max)
 		{
@@ -76,6 +80,8 @@ int	get_position(t_stack *stack, int value)
 {
 	int	pos;
 
+	if (!stack)
+		return (-1);
 	pos = 0;
 	while (stack)
 	{

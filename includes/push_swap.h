@@ -96,9 +96,8 @@ void	rev_rra(t_bench *bench, t_stack **a);
 void	rev_rrb(t_bench *bench, t_stack **b);
 void	rev_rrr(t_bench *bench, t_stack **a, t_stack **b);
 
-/*--ALGORITHMIN--*/
-int		move_min_top(t_bench *bench, t_stack **a);
 void	picker_ra_rra(t_bench *bench, t_stack **a, int pos);
+void	move_min_top(t_bench *bench, t_stack **a);
+void	simple_sort(t_bench *bench, t_stack **a, t_stack **b);
 
-void	sort_medium(t_bench *bench, t_stack **a, t_stack **b);
 #endif
