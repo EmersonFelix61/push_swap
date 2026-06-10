@@ -42,35 +42,41 @@ typedef enum e_moves
 	rrr
 }	t_moves;
 
-int		parser_numbers(char *arg);
+/*--PARSERS--*/
 int		parser_range(char *arg);
-int		parser_int(char *arg, int *number);
-int		is_duplicate(int *numbers, int size);
-int		*get_numbers(char **tokens, int numbers_count);
+int		parser_numbers(char *arg);
+void	init_bench(t_bench *bench);
+void	free_tokens(char **tokens);
 int		len_args(int argc, char **argv);
 char	*join_args(int argc, char **argv);
+int		parser_int(char *arg, int *number);
 char	**get_tokens(int argc, char **argv);
-void	free_tokens(char **tokens);
-void	init_bench(t_bench *bench);
+int		is_duplicate(int *numbers, int size);
 int		set_bench(t_bench *bench, char *token);
-int		set_strategy(t_bench *bench, char *token, int *strategy_tester);
 int		parser_flags(char **tokens, t_bench *bench);
+int		*get_numbers(char **tokens, int numbers_count);
 int		parser(int argc, char **argv, int **numbers, t_bench *bench);
+int		set_strategy(t_bench *bench, char *token, int *strategy_tester);
 
-int	print_error(void);
-int	stack_size(t_stack *stack);
-int	is_sorted(t_stack *stack);
-int	find_min_position(t_stack *stack);
-int	find_max_position(t_stack *stack);
-int	get_position(t_stack *stack, int value);
+/*--UTILS--*/
+int		print_error(void);
+int		is_sorted(t_stack *stack);
+int		stack_size(t_stack *stack);
+int		*get_array(t_stack *stack);
+int		*stack_to_array(t_stack *stack);
+void	sort_array(int *array, int size);
+int		find_min_position(t_stack *stack);
+int		find_max_position(t_stack *stack);
+int		get_position(t_stack *stack, int value);
 
 t_stack	*new_stack(int value);
-void	add_back(t_stack **stack, t_stack *new);
 t_stack	*stack_last(t_stack *stack);
-t_stack	*stack_before_last(t_stack *stack);
 void	stack_free(t_stack **stack);
+t_stack	*stack_before_last(t_stack *stack);
 t_stack	*stack_builder(int *numbers, int size);
+void	add_back(t_stack **stack, t_stack *new);
 
+/*--OPERATIONS--*/
 void	swap(t_stack **stack);
 void	swap_sa(t_bench *bench, t_stack **a);
 void	swap_sb(t_bench *bench, t_stack **b);
@@ -90,6 +96,9 @@ void	rev_rra(t_bench *bench, t_stack **a);
 void	rev_rrb(t_bench *bench, t_stack **b);
 void	rev_rrr(t_bench *bench, t_stack **a, t_stack **b);
 
-void picker_ra_rra(t_bench *bench, t_stack **a, int pos);
-int move_min_top(t_bench *bench, t_stack **a);
+/*--ALGORITHMIN--*/
+int		move_min_top(t_bench *bench, t_stack **a);
+void	picker_ra_rra(t_bench *bench, t_stack **a, int pos);
+
+void	sort_medium(t_bench *bench, t_stack **a, t_stack **b);
 #endif
