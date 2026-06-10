@@ -11,6 +11,7 @@ UTILS_DIR = utils
 PARSERS_DIR = parsers
 INC_DIR = includes
 OPERATIONS_DIR = operations
+ALGORITHM_DIR = algorithm
 
 SRCS = \
 	$(SRC_DIR)/main.c \
