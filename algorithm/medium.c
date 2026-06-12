@@ -63,7 +63,7 @@ static void	push_a(t_bench *bench, t_stack **a, t_stack **b)
 	}
 }
 
-void	sort_medium(t_bench *bench, t_stack **a, t_stack **b)
+void	medium_sort(t_bench *bench, t_stack **a, t_stack **b)
 {
 	int	*array;
 

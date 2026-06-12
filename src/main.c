@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 	a = stack_builder(numbers, bench.numbers_count);
 	if (!a)
 		return (free(numbers), print_error());
-	bench.disorder = ft_disorder(a);
+	// bench.disorder = ft_disorder(a);
 	//algoritmo aqui
 	stack_free(&a);
 	stack_free(&b);
