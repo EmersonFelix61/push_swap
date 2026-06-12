@@ -27,6 +27,13 @@ typedef struct s_bench
 	int			moves[11];
 }	t_bench;
 
+typedef struct s_radix
+{
+	int	*arr;
+	int	size;
+	int	bit;
+}	t_radix;
+
 typedef enum e_moves
 {
 	sa,
@@ -102,8 +109,9 @@ void	move_min_top(t_bench *bench, t_stack **a);
 void	sort_three(t_bench *bench, t_stack **a);
 void	picker_ra_rra(t_bench *bench, t_stack **a, int pos);
 void	simple_sort(t_bench *bench, t_stack **a, t_stack **b);
-void	sort_medium(t_bench *bench, t_stack **a, t_stack **b);
-void	sort_three(t_bench *bench, t_stack **a);
+void	medium_sort(t_bench *bench, t_stack **a, t_stack **b);
+void	complex_sort(t_bench *bench, t_stack **a, t_stack **b);
+void	adaptive_sort(t_bench *bench, t_stack **a, t_stack **b);
 void	sort_two(t_bench *bench, t_stack **a);
 
 #endif

@@ -1,41 +1,74 @@
 #include "../includes/push_swap.h"
 
-int get_pivot(t_stack *stack)
+static int	get_rank(int *arr, int size, int value)
 {
-    int *array;
-    int pivot;
-    int size;
+	int	left;
+	int	mid;
+	int	right;
 
-    size = stack_size(stack);
-    array = stack_to_array(stack);
-    if (!array)
-        return(0);
-    sort_array(array, size);
-    pivot = array[size / 2];
-    free (array);
-    return (pivot);
+	left = 0;
+	right = size - 1;
+	while (left <= right)
+	{
+		mid = left + (right - left) / 2;
+		if (arr[mid] == value)
+			return (mid);
+		if (arr[mid] < value)
+			left = mid + 1;
+		else
+			right = mid - 1;
+	}
+	return (-1);
 }
 
-int partition_a(t_bench *bench, t_stack **a, t_stack **b, int size)
+static	int	get_max_bits(int size)
 {
-    int i;
-    int pivot;
-    int count;
+	int	max;
+	int	bits;
 
-    pivot = get_pivot(*a);
-    i = 0;
-    count = 0;
-    while (i < size)
-    {
-        if ((*a)->value < pivot)
-            rotate_ra(bench, a);
-        else
-        {
-            push_pb(bench, a, b);
-            ++count;
-        }
-        i++;
-    }
-    return (count);
+	max = size - 1;
+	bits = 0;
+	while ((max >> bits) != 0)
+		bits++;
+	return (bits);
 }
 
+static void	radix_pass(t_bench *bench, t_stack **a, t_stack **b, t_radix *radix)
+{
+	int	i;
+	int	rank;
+
+	i = 0;
+	while (i < radix->size)
+	{
+		rank = get_rank(radix->arr, radix->size, (*a)->value);
+		if (((rank >> radix->bit) & 1) == 0)
+			push_pb(bench, a, b);
+		else
+			rotate_ra(bench, a);
+		i++;
+	}
+	while (*b)
+		push_pa(bench, a, b);
+}
+
+void	complex_sort(t_bench *bench, t_stack **a, t_stack **b)
+{
+	t_radix	radix;
+	int		max_bits;
+
+	if (!a || !*a || !b || is_sorted(*a))
+		return ;
+	radix.size = stack_size(*a);
+	radix.arr = get_array(*a);
+	if (!radix.arr)
+		return ;
+	radix.bit = 0;
+	max_bits = get_max_bits(radix.size);
+	while (radix.bit < max_bits)
+	{
+		radix_pass(bench, a, b, &radix);
+		radix.bit++;
+	}
+	free(radix.arr);
+}
