@@ -97,6 +97,7 @@ void	rev_rrb(t_bench *bench, t_stack **b);
 void	rev_rrr(t_bench *bench, t_stack **a, t_stack **b);
 
 /*--ALGORITHM--*/
+double	ft_disorder(t_stack *stack);
 void	picker_ra_rra(t_bench *bench, t_stack **a, int pos);
 void	move_min_top(t_bench *bench, t_stack **a);
 void	simple_sort(t_bench *bench, t_stack **a, t_stack **b);
