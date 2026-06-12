@@ -38,3 +38,4 @@ int partition_a(t_bench *bench, t_stack **a, t_stack **b, int size)
     }
     return (count);
 }
+
