@@ -75,6 +75,11 @@ void	sort_array(int *array, int size);
 int		find_min_position(t_stack *stack);
 int		find_max_position(t_stack *stack);
 int		get_position(t_stack *stack, int value);
+void	print_bench(t_bench *bench);
+char	*strategy_name(t_strategy strategy);
+char	*strategy_complexity(t_strategy strategy);
+char	*move_name(int move);
+void	print_moves(t_bench *bench);
 
 t_stack	*new_stack(int value);
 t_stack	*stack_last(t_stack *stack);

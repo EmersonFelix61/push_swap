@@ -34,6 +34,7 @@ int	main(int argc, char **argv)
 	run_sort(&bench, &a, &b);
 	stack_free(&a);
 	stack_free(&b);
+	print_bench(&bench);
 	free(numbers);
 	return (0);
 }

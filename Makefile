@@ -23,6 +23,7 @@ SRCS = \
 	$(UTILS_DIR)/errors.c \
 	$(UTILS_DIR)/stack_builder.c \
 	$(UTILS_DIR)/stack.c \
+	$(UTILS_DIR)/bench.c \
 	$(UTILS_DIR)/utils_algorithm.c \
 	$(OPERATIONS_DIR)/push.c \
 	$(OPERATIONS_DIR)/rotate.c \
