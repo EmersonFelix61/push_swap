@@ -31,6 +31,8 @@ char	*join_args(int argc, char **argv)
 	k = 0;
 	while (i < argc)
 	{
+		if (argv[i][0] == '\0')
+			return (free(joined), NULL);
 		j = 0;
 		while (argv[i][j])
 			joined[k++] = argv[i][j++];
@@ -41,6 +43,7 @@ char	*join_args(int argc, char **argv)
 	joined[k] = '\0';
 	return (joined);
 }
+
 
 void	free_tokens(char **tokens)
 {
