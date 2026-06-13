@@ -30,6 +30,9 @@ SRCS = \
 	$(OPERATIONS_DIR)/swap.c \
 	$(ALGORITHM_DIR)/simple.c \
 	$(ALGORITHM_DIR)/medium.c \
+	$(ALGORITHM_DIR)/adaptive.c \
+	$(ALGORITHM_DIR)/complex.c \
+	$(ALGORITHM_DIR)/tiny.c \
 
 OBJS = $(SRCS:.c=.o)
 

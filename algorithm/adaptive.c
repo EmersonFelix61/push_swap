@@ -41,6 +41,6 @@ void	adaptive_sort(t_bench *bench, t_stack **a, t_stack **b)
 		simple_sort(bench, a, b);
 	else if (disorder < 0.5)
 		medium_sort(bench, a, b);
-	//else
-		//o complext vem aqui.
+	else
+		complex_sort(bench, a, b);
 }
