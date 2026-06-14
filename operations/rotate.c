@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 //ra (rotate a): Shift up all elements of stack a by one. The first element becomes the last one.
 //rb (rotate b): Shift up all elements of stack b by one. The first element becomes the last one.
 //rr : ra and rb at the same time 
@@ -16,6 +16,8 @@ void	rotate(t_stack **stack)
 
 void	rotate_ra(t_bench *bench, t_stack **a)
 {
+	if (!a || !*a || !(*a)->next)
+		return ;
 	rotate(a);
 	write(1, "ra\n", 3);
 	if (bench != NULL)
@@ -24,6 +26,8 @@ void	rotate_ra(t_bench *bench, t_stack **a)
 
 void	rotate_rb(t_bench *bench, t_stack **b)
 {
+	if (!b || !*b || !(*b)->next)
+		return ;
 	rotate(b);
 	write(1, "rb\n", 3);
 	if (bench != NULL)
@@ -32,6 +36,8 @@ void	rotate_rb(t_bench *bench, t_stack **b)
 
 void	rotate_rr(t_bench *bench, t_stack **a, t_stack **b)
 {
+	if ((!a || !*a || !(*a)->next) && (!b || !*b || (!(*b)->next)))
+		return ;
 	rotate(a);
 	rotate(b);
 	write(1, "rr\n", 3);

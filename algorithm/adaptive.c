@@ -44,26 +44,37 @@ static int	tiny_sort(t_bench *bench, t_stack **a, t_stack **b)
 	return (1);
 }
 
-void	adaptive_sort(t_bench *bench, t_stack **a, t_stack **b)
+static	int	is_reverse_sorted(t_stack *stack)
+{
+	if (!stack)
+		return (1);
+	while (stack->next)
+	{
+		if (stack->value < stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
+}
+
+t_strategy	adaptive_sort(t_bench *bench, t_stack **a, t_stack **b)
 {
 	int		size;
 	double	disorder;
 
 	if (!a || !*a || !b || is_sorted(*a))
-		return ;
-	
-	size = stack_size(*a);
-	if (size >= 2 && size <= 5)
-	{
-		tiny_sort(bench, a, b);
-		return ;
-	}
+		return (STRAT_SIMPLE);
 	disorder = ft_disorder(*a);
 	bench->disorder = disorder;
+	size = stack_size(*a);
+	if (size >= 2 && size <= 5)
+		return (tiny_sort(bench, a, b), STRAT_SIMPLE);
+	if (is_reverse_sorted(*a))
+		return (simple_sort(bench, a, b), STRAT_SIMPLE);
 	if (disorder < 0.2)
-		simple_sort(bench, a, b);
+		return (simple_sort(bench, a, b), STRAT_SIMPLE);
 	else if (disorder < 0.5)
-		medium_sort(bench, a, b);
-	else
-		complex_sort(bench, a, b);
+		return (medium_sort(bench, a, b), STRAT_MEDIUM);
+	complex_sort(bench, a, b);
+	return (STRAT_COMPLEX);
 }

@@ -12,6 +12,7 @@ PARSERS_DIR = parsers
 INC_DIR = includes
 OPERATIONS_DIR = operations
 ALGORITHM_DIR = algorithm
+BENCH_DIR = bench
 
 SRCS = \
 	$(SRC_DIR)/main.c \
@@ -23,9 +24,8 @@ SRCS = \
 	$(UTILS_DIR)/errors.c \
 	$(UTILS_DIR)/stack_builder.c \
 	$(UTILS_DIR)/stack.c \
-	$(UTILS_DIR)/bench.c \
 	$(UTILS_DIR)/utils_algorithm.c \
-	$(UTILS_DIR)/utils_algorithm_2.c \
+	$(UTILS_DIR)/utils_algorith_2.c \
 	$(OPERATIONS_DIR)/push.c \
 	$(OPERATIONS_DIR)/rotate.c \
 	$(OPERATIONS_DIR)/rev_rotate.c \
@@ -35,6 +35,9 @@ SRCS = \
 	$(ALGORITHM_DIR)/adaptive.c \
 	$(ALGORITHM_DIR)/complex.c \
 	$(ALGORITHM_DIR)/tiny.c \
+	$(BENCH_DIR)/bench.c \
+	$(BENCH_DIR)/print_bench.c \
+	$(BENCH_DIR)/utils_bench.c \
 
 OBJS = $(SRCS:.c=.o)
 
