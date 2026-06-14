@@ -60,3 +60,47 @@ int	*get_array(t_stack *stack)
 	sort_array(array, size);
 	return (array);
 }
+
+void    picker_ra_rra(t_bench *bench, t_stack **a, int pos)
+{
+    int size;
+
+    if (!a || !*a)
+        return ;
+    if (pos == 0)
+        return ;
+    size = stack_size(*a);
+    if (pos <=  size / 2)
+    {
+        while (pos--)
+            rotate_ra(bench, a);
+    }
+    else
+    {
+        pos = size - pos;
+        while (pos--)
+            rev_rra(bench, a);
+    }
+}
+
+void    picker_rb_rrb(t_bench *bench, t_stack **b, int pos)
+{
+    int size;
+
+    if (!b || !*b)
+        return ;
+    if (pos == 0)
+        return ;
+    size = stack_size(*b);
+    if (pos <=  size / 2)
+    {
+        while (pos--)
+            rotate_rb(bench, b);
+    }
+    else
+    {
+        pos = size - pos;
+        while (pos--)
+            rev_rrb(bench, b);
+    }
+}

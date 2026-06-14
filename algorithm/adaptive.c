@@ -29,12 +29,35 @@ double	ft_disorder(t_stack *stack)
 	return (mistakes / total_pairs);
 }
 
+static int	tiny_sort(t_bench *bench, t_stack **a, t_stack **b)
+{
+	if (stack_size(*a) == 2)
+		sort_two(bench, a);
+	else if (stack_size(*a) == 3)
+		sort_three(bench, a);
+	else if (stack_size(*a) == 4)
+		sort_four(bench, a, b);
+	else if (stack_size(*a) == 5)
+		sort_five(bench, a, b);
+	else
+		return (0);
+	return (1);
+}
+
 void	adaptive_sort(t_bench *bench, t_stack **a, t_stack **b)
 {
+	int		size;
 	double	disorder;
 
 	if (!a || !*a || !b || is_sorted(*a))
 		return ;
+	
+	size = stack_size(*a);
+	if (size >= 2 && size <= 5)
+	{
+		tiny_sort(bench, a, b);
+		return ;
+	}
 	disorder = ft_disorder(*a);
 	bench->disorder = disorder;
 	if (disorder < 0.2)

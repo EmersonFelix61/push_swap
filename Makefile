@@ -25,6 +25,7 @@ SRCS = \
 	$(UTILS_DIR)/stack.c \
 	$(UTILS_DIR)/bench.c \
 	$(UTILS_DIR)/utils_algorithm.c \
+	$(UTILS_DIR)/utils_algorithm_2.c \
 	$(OPERATIONS_DIR)/push.c \
 	$(OPERATIONS_DIR)/rotate.c \
 	$(OPERATIONS_DIR)/rev_rotate.c \

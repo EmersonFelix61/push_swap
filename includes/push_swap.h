@@ -111,12 +111,15 @@ void	rev_rrr(t_bench *bench, t_stack **a, t_stack **b);
 /*--ALGORITHM--*/
 double	ft_disorder(t_stack *stack);
 void	move_min_top(t_bench *bench, t_stack **a);
-void	sort_three(t_bench *bench, t_stack **a);
 void	picker_ra_rra(t_bench *bench, t_stack **a, int pos);
+void	picker_rb_rrb(t_bench *bench, t_stack **b, int pos);
+void	move_min_top(t_bench *bench, t_stack **a);
 void	simple_sort(t_bench *bench, t_stack **a, t_stack **b);
 void	medium_sort(t_bench *bench, t_stack **a, t_stack **b);
 void	complex_sort(t_bench *bench, t_stack **a, t_stack **b);
 void	adaptive_sort(t_bench *bench, t_stack **a, t_stack **b);
 void	sort_two(t_bench *bench, t_stack **a);
-
+void	sort_three(t_bench *bench, t_stack **a);
+void	sort_four(t_bench *bench, t_stack **a, t_stack **b);
+void	sort_five(t_bench *bench, t_stack **a, t_stack **b);
 #endif
