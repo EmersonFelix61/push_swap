@@ -1,7 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emda-sil <emda-sil@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/15 11:56:15 by emda-sil          #+#    #+#             */
+/*   Updated: 2026/06/15 11:56:22 by emda-sil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
-//ra (rotate a): Shift up all elements of stack a by one. The first element becomes the last one.
-//rb (rotate b): Shift up all elements of stack b by one. The first element becomes the last one.
-//rr : ra and rb at the same time 
+
 void	rotate(t_stack **stack)
 {
 	t_stack	*tmp;

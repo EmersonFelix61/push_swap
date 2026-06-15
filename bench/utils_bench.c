@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_bench.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emda-sil <emda-sil@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/15 10:04:24 by emda-sil          #+#    #+#             */
+/*   Updated: 2026/06/15 10:04:41 by emda-sil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 int	bench_moves(t_bench *bench)
@@ -26,9 +38,9 @@ char	*strategy_name(t_strategy strategy)
 	return ("Adaptive");
 }
 
-char	*strategy_complexity(t_bench * bench)
+char	*strategy_complexity(t_bench *bench)
 {
-	t_strategy check_algo;
+	t_strategy	check_algo;
 
 	if (bench->strategy == STRAT_ADAPTIVE)
 		check_algo = bench->used_strategy;
@@ -37,9 +49,9 @@ char	*strategy_complexity(t_bench * bench)
 	if (check_algo == STRAT_SIMPLE)
 		return ("O(n²)");
 	if (check_algo == STRAT_MEDIUM)
-		return ("O(n√2n)");
+		return ("O(n√n)");
 	if (check_algo == STRAT_COMPLEX)
-		return ("O(nlogn)");
+		return ("O(n log n)");
 	return ("Adaptive");
 }
 

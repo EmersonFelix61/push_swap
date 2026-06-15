@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emda-sil <emda-sil@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/15 11:53:32 by emda-sil          #+#    #+#             */
+/*   Updated: 2026/06/15 11:53:41 by emda-sil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 static void	run_sort(t_bench *bench, t_stack **a, t_stack **b)
@@ -19,16 +31,6 @@ static void	run_sort(t_bench *bench, t_stack **a, t_stack **b)
 	}
 	else
 		bench->used_strategy = adaptive_sort(bench, a, b);
-}
-
-void	print_stack(t_stack *stack)
-{
-	while (stack)
-	{
-		ft_printf("%d ", stack->value);
-		stack = stack->next;
-	}
-	ft_printf("\n");
 }
 
 int	main(int argc, char **argv)
