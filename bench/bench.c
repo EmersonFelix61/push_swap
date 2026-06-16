@@ -19,7 +19,7 @@ void	init_bench(t_bench *bench)
 	bench->strategy = STRAT_ADAPTIVE;
 	bench->numbers_count = 0;
 	bench->disorder = 0;
-	bench->used_strategy = 0;
+	bench->used_strategy = 3;
 	bench->display = 0;
 	i = 0;
 	while (i < 11)
