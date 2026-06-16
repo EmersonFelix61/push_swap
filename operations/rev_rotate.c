@@ -28,6 +28,8 @@ void	rev_rotate(t_stack **stack)
 
 void	rev_rra(t_bench *bench, t_stack **a)
 {
+	if (!a || !*a || !(*a)->next)
+		return ;
 	rev_rotate(a);
 	write(1, "rra\n", 4);
 	if (bench != NULL)
@@ -36,6 +38,8 @@ void	rev_rra(t_bench *bench, t_stack **a)
 
 void	rev_rrb(t_bench *bench, t_stack **b)
 {
+	if (!b || !*b || !(*b)->next)
+		return ;
 	rev_rotate(b);
 	write(1, "rrb\n", 4);
 	if (bench != NULL)
@@ -44,6 +48,8 @@ void	rev_rrb(t_bench *bench, t_stack **b)
 
 void	rev_rrr(t_bench *bench, t_stack **a, t_stack **b)
 {
+	if ((!a || !*a || !(*a)->next) && (!b || !*b || !(*b)->next))
+		return ;
 	rev_rotate(a);
 	rev_rotate(b);
 	write(1, "rrr\n", 4);

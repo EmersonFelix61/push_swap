@@ -60,7 +60,7 @@ SRCS_BONUS_CHECKER_NAME = \
 	get_next_line/get_next_line.c \
 	get_next_line/get_next_line_utils.c \
 	$(CHECKER_DIR)/checker_bonus.c \
-	$(CHECKER_DIR)/bonus_checker_apply_instruction.c
+	$(CHECKER_DIR)/checker_apply_instruction_bonus.c
 
 OBJS = $(SRCS:.c=.o)
 

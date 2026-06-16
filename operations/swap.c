@@ -26,6 +26,8 @@ void	swap(t_stack **stack)
 
 void	swap_sa(t_bench *bench, t_stack **a)
 {
+	if (!a || !*a || !(*a)->next)
+		return ;
 	swap(a);
 	write(1, "sa\n", 3);
 	if (bench != NULL)
@@ -34,6 +36,8 @@ void	swap_sa(t_bench *bench, t_stack **a)
 
 void	swap_sb(t_bench *bench, t_stack **b)
 {
+	if (!b || !*b || !(*b)->next)
+		return ;
 	swap(b);
 	write(1, "sb\n", 3);
 	if (bench != NULL)
@@ -42,6 +46,8 @@ void	swap_sb(t_bench *bench, t_stack **b)
 
 void	swap_ss(t_bench *bench, t_stack **a, t_stack **b)
 {
+	if ((!a || !*a || !(*a)->next) && (!b || !*b || !(*b)->next))
+		return ;
 	swap(a);
 	swap(b);
 	write(1, "ss\n", 3);
