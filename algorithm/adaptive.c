@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   adaptive.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emda-sil <emda-sil@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/15 09:58:11 by emda-sil          #+#    #+#             */
+/*   Updated: 2026/06/15 09:58:16 by emda-sil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 double	ft_disorder(t_stack *stack)
@@ -44,19 +56,6 @@ static int	tiny_sort(t_bench *bench, t_stack **a, t_stack **b)
 	return (1);
 }
 
-static	int	is_reverse_sorted(t_stack *stack)
-{
-	if (!stack)
-		return (1);
-	while (stack->next)
-	{
-		if (stack->value < stack->next->value)
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
-}
-
 t_strategy	adaptive_sort(t_bench *bench, t_stack **a, t_stack **b)
 {
 	int		size;
@@ -69,8 +68,6 @@ t_strategy	adaptive_sort(t_bench *bench, t_stack **a, t_stack **b)
 	size = stack_size(*a);
 	if (size >= 2 && size <= 5)
 		return (tiny_sort(bench, a, b), STRAT_SIMPLE);
-	if (is_reverse_sorted(*a))
-		return (simple_sort(bench, a, b), STRAT_SIMPLE);
 	if (disorder < 0.2)
 		return (simple_sort(bench, a, b), STRAT_SIMPLE);
 	else if (disorder < 0.5)

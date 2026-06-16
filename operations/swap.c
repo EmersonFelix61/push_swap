@@ -1,6 +1,17 @@
-#include "push_swap.h"
-//sa (swap a): Swap the first two elements at the top of stack a. Do nothing if there is only one or no elements.
-//sb (swap b): Swap the first two elements at the top of stack b. Do nothing if there is only one or no elements.
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emda-sil <emda-sil@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/15 11:56:28 by emda-sil          #+#    #+#             */
+/*   Updated: 2026/06/15 11:56:46 by emda-sil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/push_swap.h"
+
 void	swap(t_stack **stack)
 {
 	t_stack	*tmp;

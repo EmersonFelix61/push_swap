@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emda-sil <emda-sil@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/15 11:54:54 by emda-sil          #+#    #+#             */
+/*   Updated: 2026/06/15 11:55:04 by emda-sil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
-//pa (push a): Take the first element at the top of b and put it at the top of a. Do nothing if b is empty.
-//pb (push b): Take the first element at the top of a and put it at the top of b. Do nothing if a is empty. 
+
 void	push(t_stack **src, t_stack **dst)
 {
 	t_stack	*tmp;

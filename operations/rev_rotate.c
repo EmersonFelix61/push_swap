@@ -1,7 +1,17 @@
-#include "push_swap.h"
-//rra (reverse rotate a): Shift down all elements of stack a by one. The last element becomes the first one.
-//rrb (reverse rotate b): Shift down all elements of stack b by one. The last element becomes the first one.
-//rrr : rra and rrb at the same time.
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rev_rotate.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emda-sil <emda-sil@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/15 11:55:38 by emda-sil          #+#    #+#             */
+/*   Updated: 2026/06/15 11:55:38 by emda-sil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/push_swap.h"
+
 void	rev_rotate(t_stack **stack)
 {
 	t_stack	*tmp1;

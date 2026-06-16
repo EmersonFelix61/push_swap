@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parser_tokens.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emda-sil <emda-sil@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/15 11:57:50 by emda-sil          #+#    #+#             */
+/*   Updated: 2026/06/15 11:57:57 by emda-sil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 int	len_args(int argc, char **argv)
@@ -43,7 +55,6 @@ char	*join_args(int argc, char **argv)
 	joined[k] = '\0';
 	return (joined);
 }
-
 
 void	free_tokens(char **tokens)
 {

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   simple.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emda-sil <emda-sil@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/15 09:59:07 by emda-sil          #+#    #+#             */
+/*   Updated: 2026/06/15 10:00:07 by emda-sil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 static int	find_insert_pos(t_stack *a, int value)
@@ -23,6 +35,7 @@ static int	find_insert_pos(t_stack *a, int value)
 	}
 	return (0);
 }
+
 static int	cost(int pos, int size)
 {
 	if (pos <= size / 2)
@@ -30,7 +43,7 @@ static int	cost(int pos, int size)
 	return (size - pos);
 }
 
-static int  combined_cost(int pos_a, int size_a, int pos_b, int size_b)
+static	int	combined_cost(int pos_a, int size_a, int pos_b, int size_b)
 {
 	int	cost_a;
 	int	cost_b;
@@ -72,22 +85,22 @@ static void	find_best(t_stack *a, t_stack *b, int *best_pos_a, int *best_pos_b)
 	}
 }
 
-void    simple_sort(t_bench *bench, t_stack **a, t_stack **b)
+void	simple_sort(t_bench *bench, t_stack **a, t_stack **b)
 {
-    int pos_a;
-    int pos_b;
+	int	pos_a;
+	int	pos_b;
 
-    if (!a || !*a || is_sorted(*a))
-        return ;
-    while (stack_size(*a) > 3)
-        push_pb(bench, a, b);
-    sort_three(bench, a);
-    while (*b)
-    {
-        find_best(*a, *b, &pos_a, &pos_b);
-        picker_ra_rra(bench, a, pos_a);
-        picker_rb_rrb(bench, b, pos_b);
-        push_pa(bench, a, b);
-    }
-    move_min_top(bench, a);
+	if (!a || !*a || is_sorted(*a))
+		return ;
+	while (stack_size(*a) > 3)
+		push_pb(bench, a, b);
+	sort_three(bench, a);
+	while (*b)
+	{
+		find_best(*a, *b, &pos_a, &pos_b);
+		picker_ra_rra(bench, a, pos_a);
+		picker_rb_rrb(bench, b, pos_b);
+		push_pa(bench, a, b);
+	}
+	move_min_top(bench, a);
 }

@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   bench.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emda-sil <emda-sil@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/15 10:04:21 by emda-sil          #+#    #+#             */
+/*   Updated: 2026/06/15 10:04:21 by emda-sil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
@@ -8,7 +19,7 @@ void	init_bench(t_bench *bench)
 	bench->strategy = STRAT_ADAPTIVE;
 	bench->numbers_count = 0;
 	bench->disorder = 0;
-	bench->used_strategy = 0;
+	bench->used_strategy = 3;
 	bench->display = 0;
 	i = 0;
 	while (i < 11)
