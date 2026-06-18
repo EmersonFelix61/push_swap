@@ -3,8 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emda-sil <emda-sil@student.42porto.com>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*   By: emda-sil <emda-sil@student.42porto.com>    +#+  +:+       +#+*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/15 11:58:07 by emda-sil          #+#    #+#             */
 /*   Updated: 2026/06/15 11:58:09 by emda-sil         ###   ########.fr       */
 /*                                                                            */

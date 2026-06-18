@@ -30,7 +30,7 @@ void	push_pa(t_bench *bench, t_stack **a, t_stack **b)
 		return ;
 	push(b, a);
 	write(1, "pa\n", 3);
-	if (bench != NULL)
+	if (bench != NULL )
 		++bench->moves[pa];
 }
 
