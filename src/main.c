@@ -54,7 +54,7 @@ int	main(int argc, char **argv)
 		return (free(numbers), print_error());
 	bench.disorder = ft_disorder(a);
 	run_sort(&bench, &a, &b);
-	print_bench(&bench);
+		print_bench(&bench);
 	stack_free(&a);
 	stack_free(&b);
 	free(numbers);
