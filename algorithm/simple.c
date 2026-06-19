@@ -50,12 +50,6 @@ static	int	combined_cost(int pos_a, int size_a, int pos_b, int size_b)
 
 	cost_a = cost(pos_a, size_a);
 	cost_b = cost(pos_b, size_b);
-	if ((pos_a <= size_a / 2) == (pos_b <= size_b / 2))
-	{
-		if (cost_a > cost_b)
-			return (cost_a);
-		return (cost_b);
-	}
 	return (cost_a + cost_b);
 }
 

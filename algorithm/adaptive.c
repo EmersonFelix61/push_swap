@@ -67,7 +67,15 @@ t_strategy	adaptive_sort(t_bench *bench, t_stack **a, t_stack **b)
 	bench->disorder = disorder;
 	size = stack_size(*a);
 	if (size >= 2 && size <= 5)
-		return (tiny_sort(bench, a, b), STRAT_SIMPLE);
+	{
+		tiny_sort(bench, a, b);
+		if (disorder < 0.2)
+			return (STRAT_SIMPLE);
+		if (disorder > 0.5)
+			return (STRAT_COMPLEX);
+		if (disorder < 0.5 && disorder > 0.2)
+			return (STRAT_MEDIUM);
+	}
 	if (disorder < 0.2)
 		return (simple_sort(bench, a, b), STRAT_SIMPLE);
 	else if (disorder < 0.5)
