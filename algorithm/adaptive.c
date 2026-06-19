@@ -41,7 +41,7 @@ double	ft_disorder(t_stack *stack)
 	return (mistakes / total_pairs);
 }
 
-static int	tiny_sort(t_bench *bench, t_stack **a, t_stack **b)
+static void	tiny_sort(t_bench *bench, t_stack **a, t_stack **b)
 {
 	if (stack_size(*a) == 2)
 		sort_two(bench, a);
@@ -51,35 +51,38 @@ static int	tiny_sort(t_bench *bench, t_stack **a, t_stack **b)
 		sort_four(bench, a, b);
 	else if (stack_size(*a) == 5)
 		sort_five(bench, a, b);
-	else
-		return (0);
-	return (1);
+}
+
+static t_strategy	get_regime(double disorder)
+{
+	if (disorder < 0.2)
+		return (STRAT_SIMPLE);
+	if (disorder < 0.5)
+		return (STRAT_MEDIUM);
+	return (STRAT_COMPLEX);
 }
 
 t_strategy	adaptive_sort(t_bench *bench, t_stack **a, t_stack **b)
 {
-	int		size;
-	double	disorder;
+	int			size;
+	t_strategy	regime;
 
-	if (!a || !*a || !b || is_sorted(*a))
+	if (!bench || !a || !*a || !b)
 		return (STRAT_SIMPLE);
-	disorder = ft_disorder(*a);
-	bench->disorder = disorder;
+	regime = get_regime(bench->disorder);
+	if (is_sorted(*a))
+		return (regime);
 	size = stack_size(*a);
 	if (size >= 2 && size <= 5)
 	{
 		tiny_sort(bench, a, b);
-		if (disorder < 0.2)
-			return (STRAT_SIMPLE);
-		if (disorder > 0.5)
-			return (STRAT_COMPLEX);
-		if (disorder < 0.5 && disorder > 0.2)
-			return (STRAT_MEDIUM);
+		return (regime);
 	}
-	if (disorder < 0.2)
-		return (simple_sort(bench, a, b), STRAT_SIMPLE);
-	else if (disorder < 0.5)
-		return (medium_sort(bench, a, b), STRAT_MEDIUM);
-	complex_sort(bench, a, b);
-	return (STRAT_COMPLEX);
+	if (regime == STRAT_SIMPLE)
+		simple_sort(bench, a, b);
+	else if (regime == STRAT_MEDIUM)
+		medium_sort(bench, a, b);
+	else
+		complex_sort(bench, a, b);
+	return (regime);
 }

@@ -14,7 +14,7 @@
 # define CHECKER_BONUS_H
 
 # include "../includes/push_swap.h"
-# include "../includes/get_next_line.h"
+# include "../includes/get_next_line_bonus.h"
 
 int	checker_apply_instruction(char *instruction, t_stack **a, t_stack **b);
 

@@ -4,6 +4,7 @@ BONUS_CHECKER_NAME = checker
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+DEPFLAGS = -MMD -MP
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -57,14 +58,20 @@ SRCS_BONUS_CHECKER_NAME = \
 	$(OPERATIONS_DIR)/swap.c \
 	$(BENCH_DIR)/bench.c \
 	$(BENCH_DIR)/utils_bench.c \
-	get_next_line/get_next_line.c \
-	get_next_line/get_next_line_utils.c \
+	get_next_line/get_next_line_bonus.c \
+	get_next_line/get_next_line_utils_bonus.c \
 	$(CHECKER_DIR)/checker_bonus.c \
 	$(CHECKER_DIR)/checker_apply_instruction_bonus.c
 
 OBJS = $(SRCS:.c=.o)
 
 OBJS_BONUS_CHECKER_NAME = $(SRCS_BONUS_CHECKER_NAME:.c=.o)
+
+DEPS = $(sort $(OBJS:.o=.d) $(OBJS_BONUS_CHECKER_NAME:.o=.d))
+
+LIBFT_INPUTS = $(wildcard $(LIBFT_DIR)/*.c) \
+	$(LIBFT_DIR)/libft.h \
+	$(LIBFT_DIR)/Makefile
 
 INCLUDES = -I$(INC_DIR) -I$(LIBFT_DIR)
 
@@ -80,19 +87,21 @@ $(BONUS_CHECKER_NAME): $(LIBFT) $(OBJS_BONUS_CHECKER_NAME)
 	
 bonus: $(BONUS_CHECKER_NAME)
 
-$(LIBFT):
-	make -C $(LIBFT_DIR)
+$(LIBFT): $(LIBFT_INPUTS)
+	$(MAKE) re -C $(LIBFT_DIR)
 
 %.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) $(DEPFLAGS) $(INCLUDES) -c $< -o $@
+
+-include $(DEPS)
 
 clean:
-	$(RM) $(OBJS) $(OBJS_BONUS_CHECKER_NAME)
-	make clean -C $(LIBFT_DIR)
+	$(RM) $(OBJS) $(OBJS_BONUS_CHECKER_NAME) $(DEPS)
+	$(MAKE) clean -C $(LIBFT_DIR)
 
 fclean: clean
 	$(RM) $(NAME) $(BONUS_CHECKER_NAME)
-	make fclean -C $(LIBFT_DIR)
+	$(MAKE) fclean -C $(LIBFT_DIR)
 
 re: fclean all
 

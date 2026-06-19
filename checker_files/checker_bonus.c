@@ -20,7 +20,11 @@ static int	read_moves(t_stack **a, t_stack **b)
 	while (instruction)
 	{
 		if (!checker_apply_instruction(instruction, a, b))
-			return (free(instruction), 0);
+		{
+			free(instruction);
+			get_next_line(-1);
+			return (0);
+		}
 		free(instruction);
 		instruction = get_next_line(0);
 	}
