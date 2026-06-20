@@ -1,4 +1,4 @@
-*This project has been created as part of the 42 curriculum by emda-sil, raferrei.*
+*This project has bneen created as part of the 42 curriculum by emda-sil, raferrei.*
 
 # **Push_swap**
 
@@ -266,8 +266,7 @@ Book: Entendendo algoritmos "Aditya Y.Bhargava" - novatec
 ### Use of AI
 
 AI was used as a learning and support tool to draft and review documentation,
-suggest test cases, and identify possible subject-compliance issues in the
-parser, algorithms, benchmark flow, Makefile, and bonus checker.
+suggest test cases and debug. 
 
 All findings, tests, debugging decisions, and final implementation choices were
 reviewed and validated by the project authors.

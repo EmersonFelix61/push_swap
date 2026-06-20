@@ -12,8 +12,13 @@
 
 #include "../includes/push_swap.h"
 
-static void	run_sort(t_bench *bench, t_stack **a, t_stack **b)
+static	void	run_sort(t_bench *bench, t_stack **a, t_stack **b)
 {
+	int	size;
+
+	size = stack_size(*a);
+	if (size >= 2 && size <= 5)
+		return (bench->used_strategy = STRAT_SIMPLE, simple_sort(bench, a, b));
 	if (bench->strategy == STRAT_SIMPLE)
 	{
 		bench->used_strategy = STRAT_SIMPLE;
@@ -35,11 +40,11 @@ static void	run_sort(t_bench *bench, t_stack **a, t_stack **b)
 
 int	main(int argc, char **argv)
 {
-	int			*numbers;
-	int			status;
-	t_stack		*a;
-	t_stack		*b;
-	t_bench		bench;
+	int		*numbers;
+	int		status;
+	t_stack	*a;
+	t_stack	*b;
+	t_bench	bench;
 
 	numbers = NULL;
 	a = NULL;
