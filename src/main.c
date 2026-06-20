@@ -17,8 +17,11 @@ static	void	run_sort(t_bench *bench, t_stack **a, t_stack **b)
 	int	size;
 
 	size = stack_size(*a);
-	if (size >= 2 && size <= 5)
-		return (bench->used_strategy = STRAT_SIMPLE, simple_sort(bench, a, b));
+	if (size >= 2 && size <= 5 && bench->strategy != STRAT_ADAPTIVE)
+	{
+		bench->used_strategy = bench->strategy;
+		return (simple_sort(bench, a, b));
+	}
 	if (bench->strategy == STRAT_SIMPLE)
 	{
 		bench->used_strategy = STRAT_SIMPLE;
