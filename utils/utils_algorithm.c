@@ -6,7 +6,7 @@
 /*   By: emda-sil <emda-sil@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/15 11:58:54 by emda-sil          #+#    #+#             */
-/*   Updated: 2026/06/15 12:00:11 by emda-sil         ###   ########.fr       */
+/*   Updated: 2026/06/15 11:58:54 by emda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,34 +30,6 @@ int	*stack_to_array(t_stack *stack)
 		i++;
 	}
 	return (array);
-}
-
-void	sort_array(int *array, int size)
-{
-	int	i;
-	int	j;
-	int	min;
-	int	tmp;
-
-	i = 0;
-	while (i < size - 1)
-	{
-		min = i;
-		j = i + 1;
-		while (j < size)
-		{
-			if (array[j] < array[min])
-				min = j;
-			j++;
-		}
-		if (min != i)
-		{
-			tmp = array[i];
-			array[i] = array[min];
-			array[min] = tmp;
-		}
-		i++;
-	}
 }
 
 int	*get_array(t_stack *stack)
